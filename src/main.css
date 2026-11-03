@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+    --font-display: "Inter Tight", sans-serif;
+    --font-main: "Inter Tight", sans-serif;
+    --font-mono: "Inter Tight", sans-serif;
+
+    --color-ground: #061219;
+    --color-primary: #0C1F27;
+    --color-card: #14303A;
+    --color-ink: #EDF7F7;
+    --color-muted: #8EA3A9;
+    --color-teal: #5CE1E6;
+    --color-orange: #FF7A59;
+    --color-line: rgba(237, 247, 247, 0.1);
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+        background-color: var(--color-ground);
+        color: var(--color-ink);
+        font-family: var(--font-main);
+        letter-spacing: -0.025em;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+        font-family: inherit;
+        letter-spacing: inherit;
+    }
+
+    h1,
+    h2,
+    h3 {
+        letter-spacing: -0.045em;
+    }
+
+    ::selection {
+        background-color: var(--color-teal);
+        color: var(--color-ground);
+    }
+
+    :focus-visible {
+        outline: 2px solid var(--color-teal);
+        outline-offset: 3px;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: var(--color-ground);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #1f424d;
+        border-radius: 999px;
+        border: 2px solid var(--color-ground);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #2b5a66;
+    }
+}
+
+@layer utilities {
+    .text-stroke {
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(237, 247, 247, 0.32);
+    }
+
+    .text-stroke-teal {
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(92, 225, 230, 0.55);
+    }
+
+    .reveal {
+        opacity: 0;
+        transform: translate3d(0, 18px, 0);
+        transition:
+            opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+            transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.is-visible {
+        opacity: 1;
+        transform: none;
+    }
+
+    .hero-line {
+        display: block;
+        animation: line-up 1.15s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .hero-fade {
+        animation: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .link-draw {
+        position: relative;
+    }
+
+    .link-draw::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -3px;
+        height: 1px;
+        width: 100%;
+        background: currentColor;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .link-draw:hover::after,
+    .link-draw:focus-visible::after {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+    @keyframes line-up {
+        from { transform: translate3d(0, 105%, 0); }
+        to { transform: translate3d(0, 0, 0); }
+    }
+
+    @keyframes fade-up {
+        from { opacity: 0; transform: translate3d(0, 18px, 0); }
+        to { opacity: 1; transform: translate3d(0, 0, 0); }
+    }
+}
+
+/* Panel section theme: primary surface with light text. */
+.section-light {
+    --color-ink: #edf7f7;
+    --color-teal: #5ce1e6;
+
+    background-color: var(--color-primary);
+    color: var(--color-ink);
+}
+
+/* Keeps media overlays light inside a light section. */
+.on-dark {
+    --color-ink: #edf7f7;
+    --color-teal: #5ce1e6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}

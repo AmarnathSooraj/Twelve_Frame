@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#0C1F27"/>
+  <g stroke="#5CE1E6" stroke-width="6" stroke-linecap="square" fill="none">
+    <path d="M16 27V17.5A1.5 1.5 0 0 1 17.5 16H27"/>
+    <path d="M37 16H46.5A1.5 1.5 0 0 1 48 17.5V27"/>
+    <path d="M16 37V46.5A1.5 1.5 0 0 0 17.5 48H27"/>
+    <path d="M37 48H46.5A1.5 1.5 0 0 0 48 46.5V37"/>
+  </g>
+  <g stroke="#FF7A59" stroke-width="3" stroke-linecap="round">
+    <path d="M32 25.5V33.5"/>
+    <path d="M28 29.5H36"/>
+  </g>
+  <text x="32" y="44" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="14" fill="#EDF7F7">12</text>
+</svg>
