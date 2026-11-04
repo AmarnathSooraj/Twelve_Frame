@@ -22,7 +22,7 @@ const faqs = [
 ]
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState(0)
+  const [openIndex, setOpenIndex] = useState(-1)
 
   return (
     <section
@@ -37,20 +37,20 @@ export default function FAQ() {
                 index="03"
                 eyebrow="FAQ"
                 title="Questions, answered."
-                description="Common questions about timelines, process, and how we work. Still curious about something specific? Get in touch."
+                description="Timelines, process, and how we work. Get in touch for more."
                 tone="light"
               />
             </Reveal>
 
-            <Reveal delay={120}>
+            {/* <Reveal delay={120}>
               <a
                 href="mailto:hello@twelveframe.studio"
-                className="group mt-8 inline-flex items-center gap-3 font-mono text-[12px] uppercase tracking-[0.16em] text-ink/70 transition-colors hover:text-teal"
+                className="group mt-4 inline-flex items-center gap-3 font-mono text-[12px] uppercase tracking-[0.16em] text-ink/70 transition-colors hover:text-teal"
               >
                 <span className="link-draw">Talk to a human</span>
                 <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
-            </Reveal>
+            </Reveal> */}
           </div>
         </div>
 
