@@ -31,7 +31,7 @@ export default function Footer() {
             className="flex items-center gap-3"
             aria-label="Twelve Frame Studio home"
           >
-            <LogoMark className="h-8 w-8" />
+            {/* <LogoMark className="h-8 w-8" /> */}
             <span className="font-mono text-[12px] uppercase leading-tight tracking-[0.18em] text-ink">
               Twelve Frame Studio
             </span>

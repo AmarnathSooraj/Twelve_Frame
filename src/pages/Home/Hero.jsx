@@ -79,10 +79,6 @@ export default function Hero() {
                     className="group inline-flex items-center gap-3 font-mono text-[12px] uppercase tracking-[0.16em] text-ink/70 transition-colors duration-300 hover:text-ink"
                   >
                     See the work
-                    <span
-                      aria-hidden="true"
-                      className="h-px w-8 bg-ink/30 transition-colors duration-300 group-hover:bg-teal"
-                    />
                   </a>
                 </div>
               </div>

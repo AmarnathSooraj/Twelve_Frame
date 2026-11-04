@@ -4,8 +4,11 @@ import LogoMark from '../components/LogoMark'
 
 const links = [
   { label: 'Work', href: '#work' },
+  { label: 'Case Studies', href: '#services' },
   { label: 'Services', href: '#services' },
   { label: 'Contact', href: '#contact' },
+  { label: 'Websites', href: '#contact' },
+  { label: 'Blog', href: '#contact' },
 ]
 
 const socials = [
@@ -86,7 +89,7 @@ export default function Navbar() {
             className="flex items-center gap-3"
             aria-label="Twelve Frame Studio home"
           >
-            <LogoMark className="h-8 w-8 shrink-0" />
+            {/* <LogoMark className="h-8 w-8 shrink-0" /> */}
             <span className="flex flex-col">
               <span className="font-mono text-[12px] uppercase leading-tight tracking-[0.18em] text-ink">
                 Twelve Frame Studio
@@ -184,10 +187,10 @@ export default function Navbar() {
                     <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-teal/70">
                       {String(index + 1).padStart(2, '0')}
                     </span>
-                    <span className="font-display text-[clamp(2.6rem,11.5vw,4.5rem)] font-medium leading-[0.9] tracking-[-0.055em] text-ink transition-colors duration-300 group-hover:text-teal">
+                    <span className="font-display text-[clamp(1.9rem,8vw,3rem)] font-medium leading-[0.95] tracking-[-0.05em] text-ink transition-colors duration-300 group-hover:text-teal">
                       {link.label}
                     </span>
-                    <ArrowUpRight className="ml-auto h-6 w-6 self-center text-ink/25 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-teal" />
+                    <ArrowUpRight className="ml-auto h-5 w-5 self-center text-ink/25 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-teal" />
                   </a>
                 </li>
               ))}

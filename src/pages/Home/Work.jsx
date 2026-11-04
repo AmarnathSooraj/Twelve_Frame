@@ -11,9 +11,7 @@ const projects = [
     detail: 'One shoot. Every format, in a week.',
     src: '/media/work-northwind.mp4',
     poster: '/media/work-northwind.jpg',
-    span: 'md:col-span-7',
-    ratio: 'aspect-[16/10]',
-    offset: '',
+    desktopRatio: 'md:aspect-[16/10]',
   },
   {
     title: 'Lumen',
@@ -22,9 +20,7 @@ const projects = [
     detail: 'Portrait series for a fragrance house.',
     src: '/media/work-lumen.mp4',
     poster: '/media/work-lumen.jpg',
-    span: 'md:col-span-4 md:col-start-9',
-    ratio: 'aspect-[4/5]',
-    offset: 'md:mt-20',
+    desktopRatio: 'md:aspect-[4/5]',
   },
   {
     title: 'Halcyon',
@@ -33,9 +29,7 @@ const projects = [
     detail: 'Two days with the crew, in and out of the studio.',
     src: '/media/work-halcyon.mp4',
     poster: '/media/work-halcyon.jpg',
-    span: 'md:col-span-5 md:col-start-1',
-    ratio: 'aspect-[4/5]',
-    offset: '',
+    desktopRatio: 'md:aspect-square',
   },
   {
     title: 'Arcadia',
@@ -44,9 +38,7 @@ const projects = [
     detail: 'One idea, nine markets, one fortnight.',
     src: '/media/work-arcadia.mp4',
     poster: '/media/work-arcadia.jpg',
-    span: 'md:col-span-7 md:col-start-6',
-    ratio: 'aspect-[16/10]',
-    offset: 'md:mt-16',
+    desktopRatio: 'md:aspect-[16/9]',
   },
   {
     title: 'Solstice',
@@ -55,57 +47,60 @@ const projects = [
     detail: 'A location study shot across the high desert.',
     src: '/media/work-solstice.mp4',
     poster: '/media/work-solstice.jpg',
-    span: 'md:col-span-12 md:col-start-1',
-    ratio: 'aspect-[21/9]',
-    offset: '',
+    desktopRatio: 'md:aspect-[3/4]',
   },
 ]
 
 function ProjectCard({ project, index }) {
   return (
-    <article className="group">
+    <article className="group relative overflow-hidden transition-colors duration-500 hover:z-10">
       <AmbientVideo
         src={project.src}
         poster={project.poster}
         label={`${project.title} — ${project.category}`}
-        className={`${project.ratio} on-dark rounded-sm ring-1 ring-inset ring-ink/10`}
-        videoClassName="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04]"
-        controlsClassName="absolute right-3 top-3 z-10"
+        className={`aspect-[16/10] ${project.desktopRatio} on-dark`}
+        videoClassName="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.05]"
+        controlsClassName="absolute right-4 top-4 z-20"
       >
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ground/75 via-transparent to-ground/35"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ground via-ground/40 to-transparent"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-ground/45 to-transparent"
         />
 
         <div className="relative flex h-full flex-col justify-between p-5 sm:p-6">
-          <span className="font-mono text-[12px] uppercase tracking-[0.18em] text-ink/70">
-            {String(index + 1).padStart(2, '0')} / {project.year}
-          </span>
-          <span className="font-mono text-[12px] uppercase tracking-[0.18em] text-ink/70">
-            {project.category}
-          </span>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="rounded-full border border-ink/15 bg-ground/35 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-ink/75 backdrop-blur-md">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <span className="rounded-full border border-ink/15 bg-ground/35 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-ink/75 backdrop-blur-md">
+              {project.year}
+            </span>
+          </div>
+
+          <div className="flex items-end justify-between gap-4">
+            <div className="min-w-0">
+              <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink/60">
+                {project.category}
+              </span>
+              <h3 className="mt-2 font-display text-xl font-medium leading-tight tracking-[-0.035em] text-ink transition-colors duration-300 group-hover:text-teal sm:text-2xl">
+                {project.title}
+              </h3>
+            </div>
+
+            <a
+              href="#contact"
+              className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-ink/20 bg-ground/35 text-ink/80 backdrop-blur-md transition-all duration-300 hover:border-teal hover:bg-teal hover:text-ground group-hover:border-teal group-hover:bg-teal group-hover:text-ground"
+              aria-label={`View the ${project.title} project`}
+            >
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+          </div>
         </div>
       </AmbientVideo>
-
-      <div className="mt-5 flex items-start justify-between gap-6 border-t border-ink/10 pt-4">
-        <div>
-          <h3 className="font-display text-xl font-medium tracking-[-0.035em] text-ink transition-colors duration-300 group-hover:text-teal sm:text-2xl">
-            {project.title}
-          </h3>
-          <p className="mt-2 max-w-sm text-base leading-relaxed text-ink/70">
-            {project.detail}
-          </p>
-        </div>
-
-        <a
-          href="#contact"
-          className="mt-1 inline-flex shrink-0 items-center gap-2 font-mono text-[12px] uppercase tracking-[0.16em] text-ink/65 transition-colors hover:text-teal"
-          aria-label={`View the ${project.title} project`}
-        >
-          View
-          <ArrowUpRight className="h-3 w-3" />
-        </a>
-      </div>
     </article>
   )
 }
@@ -116,34 +111,24 @@ export default function Work() {
       id="work"
       className="section-light scroll-mt-24 border-t border-ink/10 px-6 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-32"
     >
-      <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+      <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
         <Reveal>
           <SectionHeading
             index="01"
             eyebrow="Work"
-            title="Recent work."
+            title="Recent works."
             description="Recent films, shot and cut end-to-end in-house."
             tone="light"
           />
         </Reveal>
-
-        <Reveal delay={120}>
-          <a
-            href="#contact"
-            className="group inline-flex items-center gap-3 font-mono text-[12px] uppercase tracking-[0.16em] text-ink/70 transition-colors hover:text-ink"
-          >
-            <span className="link-draw">Start a project</span>
-            <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-          </a>
-        </Reveal>
       </div>
 
-      <div className="mt-14 grid gap-x-5 gap-y-16 md:grid-cols-12 md:items-start md:gap-x-6 md:gap-y-20 lg:mt-20">
+      <div className="mt-14 columns-1 gap-3 md:columns-2 lg:columns-3 lg:mt-20">
         {projects.map((project, index) => (
           <Reveal
             key={project.title}
             delay={index * 80}
-            className={`${project.span} ${project.offset}`}
+            className="mb-3 break-inside-avoid"
           >
             <ProjectCard project={project} index={index} />
           </Reveal>

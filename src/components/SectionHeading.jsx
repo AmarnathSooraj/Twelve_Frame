@@ -29,13 +29,13 @@ export default function SectionHeading({
         </span>
       ) : null}
 
-      <h2 className="mt-4 text-balance font-display text-[clamp(1.9rem,3.6vw,3.6rem)] font-medium leading-[1.04] tracking-[-0.045em] text-ink">
+      <h2 className="mt-3 md:mt-4 text-balance font-display text-[clamp(2.6rem,3.6vw,3.6rem)] font-medium leading-[1.04] tracking-[-0.045em] text-ink">
         {title}
       </h2>
 
       {description ? (
         <p
-          className={`mt-5 max-w-xl text-pretty text-base leading-relaxed sm:text-[17px] ${light ? 'text-ink/70' : 'text-ink/55'
+          className={`mt-3 md:mt-4 max-w-xl text-pretty text-base md:text-md lg:text-lg xl:text-xl leading-relaxed ${light ? 'text-ink/70' : 'text-ink/55'
             }`}
         >
           {description}

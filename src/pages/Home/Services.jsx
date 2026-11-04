@@ -158,9 +158,9 @@ export default function Services() {
       id="services"
       className="scroll-mt-24 border-t border-ink/10 px-6 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-32"
     >
-      <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
+      <div className="grid gap-0 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-4">
-          <div className="lg:sticky lg:top-32">
+          <div>
             <Reveal>
               <SectionHeading
                 index="02"
@@ -171,7 +171,7 @@ export default function Services() {
             </Reveal>
 
             <Reveal delay={120}>
-              <div className="mt-10">
+              <div className="mt-4">
                 <a
                   href="#contact"
                   className="group inline-flex items-center gap-3 font-mono text-[12px] uppercase tracking-[0.16em] text-ink/60 transition-colors hover:text-teal"
@@ -179,30 +179,32 @@ export default function Services() {
                   <span className="link-draw">Send a brief</span>
                   <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </a>
-                <div className="mt-8 flex items-center gap-3">
-                  <button
-                    type="button"
-                    onClick={prev}
-                    aria-label="Previous service"
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink/15 text-ink/70 transition-all duration-300 hover:border-teal hover:text-teal"
-                  >
-                    <ArrowLeft className="h-4 w-4" />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={next}
-                    aria-label="Next service"
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink/15 text-ink/70 transition-all duration-300 hover:border-teal hover:text-teal"
-                  >
-                    <ArrowRight className="h-4 w-4" />
-                  </button>
-                </div>
               </div>
             </Reveal>
           </div>
         </div>
 
-        <div className="lg:col-span-8">
+        <div className="lg:col-span-8" bg-amber-400>
+          <Reveal delay={120}>
+            <div className="mb-6 flex items-center justify-end gap-3">
+              <button
+                type="button"
+                onClick={prev}
+                aria-label="Previous service"
+                className="inline-flex h-11 w-11 items-center justify-center text-ink/70 transition-colors duration-300 hover:text-teal"
+              >
+                <ArrowLeft className="h-5 w-5" strokeWidth={1.5} />
+              </button>
+              <button
+                type="button"
+                onClick={next}
+                aria-label="Next service"
+                className="inline-flex h-11 w-11 items-center justify-center text-ink/70 transition-colors duration-300 hover:text-teal"
+              >
+                <ArrowRight className="h-5 w-5" strokeWidth={1.5} />
+              </button>
+            </div>
+          </Reveal>
           <div
             className="relative overflow-hidden"
             onMouseEnter={stopInterval}
@@ -224,13 +226,15 @@ export default function Services() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-transparent" />
                     </div>
+                    <div className="relative flex items-center justify-between p-7 pb-0 sm:p-8 sm:pb-0">
+                      <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/40">
+                        {service.number}
+                      </span>
+                      <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white/60 backdrop-blur transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:border-teal group-hover:text-teal">
+                        <ArrowUpRight className="h-4 w-4" />
+                      </span>
+                    </div>
                     <div className="relative mt-auto flex flex-col gap-4 p-7 sm:p-8">
-                      <div className="flex items-center justify-between">
-                        <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/40">
-                          {service.number}
-                        </span>
-                        <ArrowUpRight className="h-4 w-4 text-white/40 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-teal" />
-                      </div>
                       <div>
                         <h3 className="font-display text-2xl font-medium leading-tight tracking-[-0.04em] text-white sm:text-[2rem]">
                           {service.title}
