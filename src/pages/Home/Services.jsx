@@ -158,8 +158,8 @@ export default function Services() {
       id="services"
       className="scroll-mt-24 border-t border-ink/10 px-6 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-32"
     >
-      <div className="grid gap-0 lg:grid-cols-12 lg:gap-16">
-        <div className="lg:col-span-4">
+      <div className="grid grid-cols-1 gap-0 lg:grid-cols-12 lg:gap-16">
+        <div className="min-w-0 lg:col-span-4">
           <div>
             <Reveal>
               <SectionHeading
@@ -184,7 +184,7 @@ export default function Services() {
           </div>
         </div>
 
-        <div className="lg:col-span-8" bg-amber-400>
+        <div className="min-w-0 lg:col-span-8">
           <Reveal delay={120}>
             <div className="mb-6 flex items-center justify-end gap-3">
               <button
