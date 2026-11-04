@@ -15,9 +15,9 @@ export default function AmbientVideo({
   children,
 }) {
   const videoRef = useRef(null)
+  const progressRef = useRef(null)
   const userPaused = useRef(false)
   const [playing, setPlaying] = useState(false)
-  const [progress, setProgress] = useState(0)
   const [reduced] = useState(
     () =>
       typeof window !== 'undefined' &&
@@ -36,28 +36,41 @@ export default function AmbientVideo({
     const onPlay = () => setPlaying(true)
     const onPause = () => setPlaying(false)
     const onTimeUpdate = () => {
-      if (video.duration) setProgress(video.currentTime / video.duration)
+      if (video.duration && progressRef.current) {
+        // Update the bar directly so playback doesn't re-render the view.
+        progressRef.current.style.transform = `scaleX(${video.currentTime / video.duration})`
+      }
     }
 
     video.addEventListener('play', onPlay)
     video.addEventListener('pause', onPause)
-    video.addEventListener('timeupdate', onTimeUpdate)
+    // Only the background variant renders a progress bar, so avoid causing
+    // four re-renders per second for every playing card video.
+    if (variant === 'background') {
+      video.addEventListener('timeupdate', onTimeUpdate)
+    }
 
     return () => {
       video.removeEventListener('play', onPlay)
       video.removeEventListener('pause', onPause)
       video.removeEventListener('timeupdate', onTimeUpdate)
     }
-  }, [])
+  }, [variant])
 
   useEffect(() => {
     const video = videoRef.current
     if (!video || reduced) return undefined
 
+    // On phones, autoplaying every card in view means several videos decode at
+    // once, which makes scrolling stutter. Only the full-bleed background video
+    // autoplays there; card videos wait for a tap on the play control.
+    const isPhone = window.matchMedia('(max-width: 767px)').matches
+    const canAutoplay = !isPhone || variant === 'background'
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          if (!userPaused.current) video.play().catch(() => {})
+          if (canAutoplay && !userPaused.current) video.play().catch(() => {})
         } else {
           video.pause()
         }
@@ -67,7 +80,7 @@ export default function AmbientVideo({
 
     observer.observe(video)
     return () => observer.disconnect()
-  }, [reduced])
+  }, [reduced, variant])
 
   const toggle = () => {
     const video = videoRef.current
@@ -94,7 +107,6 @@ export default function AmbientVideo({
         loop
         playsInline
         preload={priority ? 'auto' : 'metadata'}
-        autoPlay={!reduced}
         aria-hidden="true"
         tabIndex={-1}
         className={videoClassName}
@@ -145,8 +157,9 @@ export default function AmbientVideo({
       {variant === 'background' ? (
         <div className="absolute inset-x-0 bottom-0 h-px bg-ink/10" aria-hidden="true">
           <div
+            ref={progressRef}
             className="h-full origin-left bg-teal/70 transition-transform duration-200 ease-linear"
-            style={{ transform: `scaleX(${progress})` }}
+            style={{ transform: 'scaleX(0)' }}
           />
         </div>
       ) : null}

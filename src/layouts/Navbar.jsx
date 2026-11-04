@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import { ArrowUpRight } from 'lucide-react'
-import LogoMark from '../components/LogoMark'
 
 const links = [
   { label: 'Work', href: '#work' },
@@ -77,7 +76,7 @@ export default function Navbar() {
       <header className="sticky top-0 z-50">
         <div
           aria-hidden="true"
-          className={`pointer-events-none absolute inset-0 border-b bg-primary/90 backdrop-blur-xl transition-[translate,opacity,border-color] duration-500 ease-out ${solid
+          className={`pointer-events-none absolute inset-0 border-b bg-primary/95 transition-[translate,opacity,border-color] duration-500 ease-out lg:bg-primary/90 lg:backdrop-blur-xl ${solid
             ? 'translate-y-0 border-ink/10 opacity-100'
             : '-translate-y-full border-transparent opacity-0'
             }`}

@@ -73,10 +73,10 @@ function ProjectCard({ project, index }) {
 
         <div className="relative flex h-full flex-col justify-between p-5 sm:p-6">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="rounded-full border border-ink/15 bg-ground/35 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-ink/75 backdrop-blur-md">
+            <span className="rounded-full border border-ink/15 bg-ground/45 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-ink/75">
               {String(index + 1).padStart(2, '0')}
             </span>
-            <span className="rounded-full border border-ink/15 bg-ground/35 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-ink/75 backdrop-blur-md">
+            <span className="rounded-full border border-ink/15 bg-ground/45 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-ink/75">
               {project.year}
             </span>
           </div>
@@ -93,7 +93,7 @@ function ProjectCard({ project, index }) {
 
             <a
               href="#contact"
-              className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-ink/20 bg-ground/35 text-ink/80 backdrop-blur-md transition-all duration-300 hover:border-teal hover:bg-teal hover:text-ground group-hover:border-teal group-hover:bg-teal group-hover:text-ground"
+              className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-ink/20 bg-ground/45 text-ink/80 transition-all duration-300 hover:border-teal hover:bg-teal hover:text-ground group-hover:border-teal group-hover:bg-teal group-hover:text-ground"
               aria-label={`View the ${project.title} project`}
             >
               <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

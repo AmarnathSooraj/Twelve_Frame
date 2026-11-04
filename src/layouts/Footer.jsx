@@ -1,5 +1,4 @@
 import { ArrowUpRight } from 'lucide-react'
-import LogoMark from '../components/LogoMark'
 
 const columns = [
   {

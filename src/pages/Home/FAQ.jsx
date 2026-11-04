@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ArrowUpRight, Plus } from 'lucide-react'
+import { Plus } from 'lucide-react'
 import SectionHeading from '../../components/SectionHeading'
 import Reveal from '../../components/Reveal'
 
