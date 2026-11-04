@@ -122,7 +122,7 @@ export default function Work() {
             index="01"
             eyebrow="Work"
             title="Recent work."
-            description="Five recent films, shot and cut in-house."
+            description="A selection of recent films — crafted end-to-end in-house, from concept development to final delivery across every format."
             tone="light"
           />
         </Reveal>

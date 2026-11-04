@@ -37,7 +37,7 @@ export default function FAQ() {
                 index="03"
                 eyebrow="FAQ"
                 title="Questions, answered."
-                description="Still deciding? Send a note."
+                description="Common questions about timelines, process, and how we work. Still curious about something specific? Get in touch."
                 tone="light"
               />
             </Reveal>

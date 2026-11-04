@@ -15,7 +15,7 @@ export default function CTA() {
               index="04"
               eyebrow="Contact"
               title="Tell us what you need to see."
-              description="A brief, an idea or a deadline. We reply within a day."
+              description="A brief, idea, or deadline is all we need. Share your goals and timeline — we'll reply within a day with next steps."
             />
           </Reveal>
         </div>
@@ -35,9 +35,11 @@ export default function CTA() {
               <ArrowUpRight className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap gap-3">
               <a
-                href="mailto:hello@twelveframe.studio"
+                href="https://calendly.com/bijeshnarayanan/30min?month=2026-11"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-teal px-6 py-3.5 font-mono text-[12px] uppercase tracking-[0.16em] text-ground transition-colors duration-300 hover:bg-ink"
               >
                 Book a call
@@ -58,13 +60,6 @@ export default function CTA() {
                 London, UK
                 <br />
                 Working worldwide
-              </p>
-              <p className="mt-4 inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.16em] text-ink/45">
-                <span
-                  aria-hidden="true"
-                  className="h-1.5 w-1.5 rounded-full bg-teal"
-                />
-                Booking Q1 2026
               </p>
             </div>
           </Reveal>

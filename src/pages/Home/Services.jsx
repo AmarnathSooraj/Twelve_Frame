@@ -43,7 +43,7 @@ export default function Services() {
                 index="02"
                 eyebrow="Services"
                 title="What we make."
-                description="One studio for the whole pipeline."
+                description="From concept to final cut, we handle every step of the production pipeline in-house — strategy, shoot, edit, motion, and delivery."
               />
             </Reveal>
 
